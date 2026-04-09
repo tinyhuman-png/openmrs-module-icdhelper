@@ -1,0 +1,17 @@
+[
+  {
+    "id": "icdhelper.app.analyze",
+    "description": "ICD-10 Analysis App",
+    "order": 10,
+    "extensions": [
+      {
+        "id": "icdhelper.visitActions.link",
+        "extensionPointId": "patientDashboard.visitActions",
+        "type": "link",
+        "label": "ICD-10 Coding Helper",
+        "url": "icdhelper/icdhelper.page?patientId={{patient.uuid}}&visitId={{visit.uuid}}",
+        "icon": "icon-magic"
+      }
+    ]
+  }
+]

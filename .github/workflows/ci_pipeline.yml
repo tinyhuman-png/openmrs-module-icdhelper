@@ -1,0 +1,86 @@
+name: ICDHelper CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      #1 Get the code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      #2 Setup Java env
+      - name: Setup JDK 8
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+          cache: maven #Automatically caches dependencies to speed up future builds
+
+      #3 Build api and omod (to run unit tests)
+      - name: Build with Maven
+        run: mvn clean install
+        env:
+          MAVEN_OPTS: "-Xmx3072m -Xms512m -XX:+UseG1GC"
+
+      #4 Download models folder
+      - name: Download ML models
+        run: |
+          chmod +x download_models.sh
+          ./download_models.sh
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      #5 Start OpenMRS backend and wait until fully booted
+      - name: Start OpenMRS (with Docker)
+        working-directory: ./e2e
+        run: |
+          docker compose up -d
+          ATTEMPTS=0
+          MAX_ATTEMPTS=40
+          echo "Waiting for OpenMRS to start.."
+          while ! curl -s -f --max-time 5 http://localhost:8080/openmrs/login.htm | grep -q "login-form"; do
+            ATTEMPTS=$((ATTEMPTS+1))
+            if [ $ATTEMPTS -eq $MAX_ATTEMPTS ]; then
+              echo "Timeout waiting for OpenMRS!"
+              echo "Dumping OpenMRS Docker logs for debugging:"
+              docker logs openmrs-server
+              exit 1
+            fi
+            echo "Still waiting (Attempt $ATTEMPTS/$MAX_ATTEMPTS)"
+            sleep 15
+          done
+          echo "OpenMRS running!"
+
+      #6 Setup Node for Playwright
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      #7 Install Playwright dependencies
+      - name: Install Playwright
+        working-directory: ./e2e
+        run: |
+          npm ci
+          npx playwright install --with-deps
+
+      #8 Run the E2E test suite
+      - name: Run E2E tests
+        working-directory: ./e2e
+        run: npx playwright test --project=chromium
+
+      #9 Save test reports
+      - name: Upload Playwright reports
+        if: always() #Runs even if tests fail
+        uses: actions/upload-artifact@v4
+        with:
+          name: 'playwright-report'
+          path: ./e2e/playwright-report/
+          retention-days: 5

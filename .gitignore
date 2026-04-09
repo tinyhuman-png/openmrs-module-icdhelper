@@ -1,0 +1,42 @@
+# 1. Backend
+target/
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.class
+*.omod
+
+# 2. Machine learning models
+# Completely ignore all ONNX files anywhere in the project
+*.onnx
+models/
+!models/.gitkeep
+
+# 3. e2e folder
+node_modules/
+npm-debug.log*
+yarn-error.log*
+playwright-report/
+test-results/
+blob-report/
+e2e/playwright-report/
+e2e/test-results/
+e2e/node_modules/
+.auth/
+e2e/.auth/
+
+# 4. Docker + local environments
+# If docker-compose creates local data volumes in the project tree
+mysql_data/
+db_data/
+.env
+
+# 5. OS + IDE files
+.idea/
+*.iml
+.vscode/
+.eclipse/
+.DS_Store
+Thumbs.db

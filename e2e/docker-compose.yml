@@ -1,0 +1,34 @@
+services:
+  openmrs:
+    container_name: openmrs-server
+    image: openmrs/openmrs-reference-application-distro:2.12.0
+    ports:
+      - "8080:8080"
+    environment:
+      DB_DATABASE: openmrs
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      DB_CREATE_TABLES: true
+      DB_AUTO_UPDATE: true
+      MODULE_WEB_ADMIN: true
+      DB_HOST: db
+      JAVA_OPTS: "-Xmx3072m -Xms512m -XX:+UseG1GC"
+    volumes:
+      - ../omod/target/icdhelper-1.0.0-SNAPSHOT.omod:/usr/local/tomcat/.OpenMRS/modules/icdhelper.omod
+      - ../models:/usr/local/tomcat/.OpenMRS/icdhelper/models
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    container_name: openmrs-db
+    image: mysql:5.6
+    command: --character-set-server=utf8 --collation-server=utf8_general_ci
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: openmrs
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

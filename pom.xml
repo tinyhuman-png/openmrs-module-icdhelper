@@ -1,0 +1,204 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.openmrs.maven.parents</groupId>
+        <artifactId>maven-parent-openmrs-module</artifactId>
+        <version>1.1.0</version>
+    </parent>
+
+	<groupId>org.openmrs.module</groupId>
+	<artifactId>icdhelper</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>ICDHelper</name>
+	<description>ICDHelper helps the ICD coding task with a search of ICD codes corresponding to a Note</description>
+
+	<url>https://wiki.openmrs.org/x/FQ4z</url>
+
+	<scm>
+		<connection>scm:git:git@github.com:openmrs/openmrs-module-icdhelper.git</connection>
+		<developerConnection>scm:git:git@github.com:openmrs/openmrs-module-icdhelper.git</developerConnection>
+		<url>https://github.com/openmrs/openmrs-module-icdhelper/</url>
+	</scm>
+
+	<modules>
+		<module>api</module>
+		<module>omod</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Importing versions from refapp distro -->
+            <dependency>
+                <groupId>org.openmrs.distro</groupId>
+                <artifactId>referenceapplication</artifactId>
+                <version>2.4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>3.1.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.1.2</version>
+					<configuration>
+						<runOrder>alphabetical</runOrder>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.openmrs.maven.plugins</groupId>
+					<artifactId>maven-openmrs-plugin</artifactId>
+					<version>1.0.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.commonjava.maven.plugins</groupId>
+					<artifactId>directory-maven-plugin</artifactId>
+					<version>0.1</version>
+					<executions>
+						<execution>
+							<id>directories</id>
+							<goals>
+								<goal>highest-basedir</goal>
+							</goals>
+							<phase>validate</phase>
+							<configuration>
+								<property>main.basedir</property>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<groupId>com.mycila</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>3.0</version>
+					<configuration>
+						<header>${main.basedir}${file.separator}license-header.txt</header>
+						<headerDefinitions>
+							<headerDefinition>${main.basedir}${file.separator}license-format.xml</headerDefinition>
+						</headerDefinitions>
+						<mapping>
+							<java>JAVA_STYLE</java>
+							<xml>MYXML_STYLE</xml>
+						</mapping>
+						<includes>
+							<include>**/*.java</include>
+							<include>**/*.xml</include>
+							<include>**/*.properties</include>
+						</includes>
+						<excludes>
+							<exclude>license-format.xml</exclude>
+							<exclude>**/pom.xml</exclude>
+							<exclude>**/target/**</exclude>
+							<exclude>.git/**</exclude>
+							<exclude>.idea/**</exclude>
+							<exclude>.settings/**</exclude>
+							<exclude>.externalToolBuilders/</exclude>
+							<exclude>nbproject/private/</exclude>
+							<exclude>.vscode/**</exclude>
+						</excludes>
+					</configuration>
+					<executions>
+						<execution>
+							<id>add-license</id>
+							<goals>
+								<goal>format</goal>
+							</goals>
+							<phase>validate</phase>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- Fix for "Failed to execute goal org.apache.maven.plugins:maven-resources-plugin:3.2.0:resources (default-resources) on project application-etude: Input length = 1" -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<!-- Spotless plugin -->
+				<plugin>
+					<groupId>com.diffplug.spotless</groupId>
+					<artifactId>spotless-maven-plugin</artifactId>
+					<version>2.27.2</version>
+					<configuration>
+						<java>
+							<licenseHeader>
+								<file>${project.basedir}/license-header.txt</file>
+							</licenseHeader>
+							<eclipse>
+								<file>${project.basedir}/OpenMRSFormatter.xml</file>
+							</eclipse>
+							<removeUnusedImports/>
+							<importOrder>
+								<order>javax,java</order>
+							</importOrder>
+						</java>
+						<formats>
+							<format>
+								<includes>
+									<include>**/*.xml</include>
+								</includes>
+								<licenseHeader>
+									<file>${project.basedir}/license-header.txt</file>
+									<delimiter>^(?!&lt;\?xml)</delimiter>
+								</licenseHeader>
+							</format>
+						</formats>
+					</configuration>
+					<executions>
+						<execution>
+							<id>spotless-apply</id>
+							<phase>validate</phase>
+							<goals>
+								<goal>apply</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>openmrs-repo</id>
+			<name>OpenMRS Nexus Repository</name>
+			<url>https://mavenrepo.openmrs.org/public</url>
+		</repository>
+		<repository>
+			<id>central</id>
+			<name>Maven Repository Switchboard</name>
+			<layout>default</layout>
+			<url>https://repo1.maven.org/maven2</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>openmrs-repo</id>
+			<name>OpenMRS Nexus Repository</name>
+			<url>https://mavenrepo.openmrs.org/public</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<properties>
+		<openmrsPlatformVersion>1.11.6</openmrsPlatformVersion>
+	</properties>
+</project>

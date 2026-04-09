@@ -1,0 +1,211 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<!-- ==================== SOURCES AND MAPPING TYPES ==================== -->
+	<!-- getConceptByICD10Code test data -->
+	<concept_reference_source concept_source_id="1" name="ICD-10-WHO" description="Wordl Health Organisation ICD-10" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="source-uuid-1"/>
+	<concept_reference_source concept_source_id="2" name="ICD-10-CM" description="ICD-10 Clinical Modification" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="source-uuid-2"/>
+
+	<concept_map_type concept_map_type_id="1" name="SAME-AS"  creator="1" date_created="2026-01-01 00:00:00.0" is_hidden="false" retired="false" uuid="35543629-7d8c-11e1-909d-c80aa9edcf4b"/>
+	<concept_map_type concept_map_type_id="2" name="NARROWER-THAN" creator="1" date_created="2026-01-01 00:00:00.0" is_hidden="false" retired="false" uuid="43ac5109-7d8c-11e1-909d-c80aa9edcf4b"/>
+	<concept_map_type concept_map_type_id="3" name="BROADER-THAN" creator="1" date_created="2026-01-01 00:00:00.0" is_hidden="false" retired="false" uuid="43ad5108-7d8c-11e1-909d-c80aa9edcf4b"/>
+
+	<!-- ==================== VISIT AND ENCOUNTER TYPES ==================== -->
+	<!-- getVisitNote test data -->
+	<visit_type visit_type_id="1" name="Outpatient" description="Outpatient visit" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="visit-type-uuid-1"/>
+	<encounter_type encounter_type_id="2" name="Visit Note" description="Visit Note encounter" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="encounter-type-uuid-2"/>
+
+	<!-- ==================== CONCEPTS ==================== -->
+	<!-- getConceptByICD10Code test data (some also used by saveICD10Diagnosis and getMappingInfo)-->
+	<concept concept_id="1000" uuid="concept-uuid-1" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false"/>
+	<concept_name concept_name_id="1" concept_id="1000" name="Unspecified Cholera" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-1"/>
+
+	<concept concept_id="1001" uuid="concept-uuid-2" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="2" concept_id="1001" name="Plasmodium vivax malaria with rupture of spleen" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-2"/>
+
+	<concept concept_id="1002" uuid="concept-uuid-3" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="3" concept_id="1002" name="Open skull fracture" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-3"/>
+
+	<concept concept_id="1003" uuid="concept-uuid-4" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="4" concept_id="1003" name="Fracture of skull and facial bones" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-4"/>
+
+	<concept concept_id="1004" uuid="concept-uuid-7" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="7" concept_id="1004" name="Nutritional anaemia" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-7"/>
+
+	<concept concept_id="1005" uuid="concept-uuid-8" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="8" concept_id="1005" name="Iron deficiency anaemia" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-8"/>
+
+	<concept concept_id="1006" uuid="concept-uuid-9" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="9" concept_id="1006" name="Myocardial infarction" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-9"/>
+
+	<concept concept_id="1007" uuid="concept-uuid-10" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="10" concept_id="1007" name="Malaria" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-10"/>
+
+	<concept concept_id="1008" uuid="concept-uuid-11" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="11" concept_id="1008" name="Cerebral Malaria" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-11"/>
+
+	<concept concept_id="1009" uuid="concept-uuid-12" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="true" />
+	<concept_name concept_name_id="12" concept_id="1009" name="Leg cramp" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-12"/>
+
+	<concept concept_id="1010" uuid="concept-uuid-13" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="13" concept_id="1010" name="Osteoporosis of disuse" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-13"/>
+
+	<concept concept_id="1011" uuid="concept-uuid-14" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="14" concept_id="1011" name="Essential hypertension" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-14"/>
+
+	<concept concept_id="1012" uuid="concept-uuid-15" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="15" concept_id="1012" name="Primary hypertension" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-15"/>
+
+	<concept concept_id="1014" uuid="concept-uuid-17" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="17" concept_id="1014" name="Unspecified fracture of facial bones" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-17"/>
+
+	<concept concept_id="1015" uuid="concept-uuid-18" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="18" concept_id="1015" name="Direct infection of unspecified elbow in infectious and parasitic diseases classified elsewhere" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-18"/>
+
+	<concept concept_id="1016" uuid="concept-uuid-19" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="19" concept_id="1016" name="Direct infections of joint in infectious and parasitic diseases classified elsewhere" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-19"/>
+
+	<concept concept_id="1017" uuid="concept-uuid-20" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="20" concept_id="1017" name="Plasmodium vivax malaria" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-20"/>
+
+	<concept concept_id="1018" uuid="concept-uuid-21" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="21" concept_id="1018" name="Plasmodium vivax malaria with rupture of spleen and more details" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-21"/>
+
+	<!-- saveICD10Diagnosis test data -->
+	<!-- Diagnosis Coded concept (CIEL 1284), Diagnosis Non Coded concept (CIEL 160221) -->
+	<concept concept_id="160221" uuid="160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" datatype_id="4" class_id="11" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="5" concept_id="160221" name="Diagnosis Non Coded" locale="en" locale_preferred="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="name-uuid-5"/>
+
+	<concept concept_id="1284" uuid="1284AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" is_set="0" datatype_id="4" class_id="4" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="6" concept_id="1284" name="Diagnosis Coded" locale="en" locale_preferred="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="name-uuid-6"/>
+
+	<!-- getVisitNotes test data -->
+	<!-- Visit Note concept (CIEL 162169), Unrelated concept (for test filtering) -->
+	<concept concept_id="162169" uuid="162169AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" datatype_id="3" class_id="11" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false"/>
+	<concept_name concept_name_id="20" concept_id="162169" name="Visit Notes" locale="en" locale_preferred="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-20"/>
+
+	<concept concept_id="5089" uuid="5089AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" datatype_id="1" class_id="1" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false"/>
+	<concept_name concept_name_id="21" concept_id="5089" name="Weight" locale="en" locale_preferred="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-21"/>
+
+	<!-- getMappingInfo test data -->
+	<concept concept_id="1013" uuid="concept-uuid-16" datatype_id="4" class_id="4" is_set="0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" />
+	<concept_name concept_name_id="16" concept_id="1013" name="Covid-19" locale="en" locale_preferred="0" creator="1" date_created="2026-01-01 00:00:00.0" concept_name_type="FULLY_SPECIFIED" voided="false" uuid="concept-name-uuid-16"/>
+
+	<!-- ==================== REFERENCE TERMS ==================== -->
+	<!-- getConceptByICD10Code test data -->
+	<concept_reference_term concept_reference_term_id="1" concept_source_id="1" code="A00.9" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-1"/>
+	<concept_reference_term concept_reference_term_id="2" concept_source_id="1" code="B51.0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-2"/>
+	<concept_reference_term concept_reference_term_id="3" concept_source_id="1" code="S02.9" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-3"/>
+	<concept_reference_term concept_reference_term_id="4" concept_source_id="1" code="D50.0" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-4"/>
+	<concept_reference_term concept_reference_term_id="5" concept_source_id="1" code="I21.9" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-5"/>
+	<concept_reference_term concept_reference_term_id="6" concept_source_id="1" code="B50" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-6"/>
+	<concept_reference_term concept_reference_term_id="7" concept_source_id="1" code="R25.2" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-7"/>
+	<concept_reference_term concept_reference_term_id="8" concept_source_id="1" code="M81.2" creator="1" date_created="2026-01-01 00:00:00.0" retired="true" uuid="term-uuid-8"/>
+	<concept_reference_term concept_reference_term_id="9" concept_source_id="1" code="I10" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-9"/>
+	<concept_reference_term concept_reference_term_id="10" concept_source_id="2" code="S02.92" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-10"/>
+	<concept_reference_term concept_reference_term_id="11" concept_source_id="2" code="M01.X2" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-11"/>
+	<concept_reference_term concept_reference_term_id="12" concept_source_id="1" code="B51" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-12"/>
+	<concept_reference_term concept_reference_term_id="13" concept_source_id="1" code="B51.01" creator="1" date_created="2026-01-01 00:00:00.0" retired="false" uuid="term-uuid-13"/>
+
+	<!-- ==================== MAPPINGS ==================== -->
+	<!-- getConceptByICD10Code test data -->
+	<!-- concept_map_id 1: Unspecified Cholera SAME-AS A00.9 (exact match test) -->
+	<concept_reference_map concept_map_id="1" concept_reference_term_id="1" concept_map_type_id="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1000" uuid="map-uuid-1"/>
+	<!-- concept_map_id 2/17/18: Plasmodium vivax malaria with rupture of spleen SAME-AS B51.0 / Plasmodium vivax malaria SAME-AS B51
+	/ Plasmodium vivax malaria with rupture of spleen and more details NARROWER-THAN B51.01 (closest match when truncation test) -->
+	<concept_reference_map concept_map_id="2" concept_reference_term_id="2" concept_map_type_id="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1001" uuid="map-uuid-2"/>
+	<concept_reference_map concept_map_id="17" concept_reference_term_id="12" concept_map_type_id="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1017" uuid="map-uuid-17"/>
+	<concept_reference_map concept_map_id="18" concept_reference_term_id="13" concept_map_type_id="2" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1018" uuid="map-uuid-18"/>
+	<!-- concept_map_id 3/4: Open skull fracture NARROWER-THAN S02.9 / Fracture of skull and facial bones SAME-AS S02.9 (prioritize same-as test) -->
+	<concept_reference_map concept_map_id="3" concept_reference_term_id="3" concept_map_type_id="2" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1002" uuid="map-uuid-3"/>
+	<concept_reference_map concept_map_id="4" concept_reference_term_id="3" concept_map_type_id="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1003" uuid="map-uuid-4"/>
+	<!-- concept_map_id 5/6: Nutritional anaemia NARROWER-THAN D50.0 / Iron deficiency anaemia NARROWER-THAN D50.0 (multiple narrower-than test) -->
+	<concept_reference_map concept_map_id="5" concept_reference_term_id="4" concept_map_type_id="2" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1004" uuid="map-uuid-5"/>
+	<concept_reference_map concept_map_id="6" concept_reference_term_id="4" concept_map_type_id="2" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1005" uuid="map-uuid-6"/>
+	<!-- concept_map_id 7: Myocardial infarction BROADER-THAN I21.9 (broader-than test) -->
+	<concept_reference_map concept_map_id="7" concept_reference_term_id="5" concept_map_type_id="3" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1006" uuid="map-uuid-7"/>
+	<!-- concept_map_id 8/9: Malaria BROADER-THAN B50 / Cerebral Malaria NARROWER-THAN B50 (prioritize narrower-than test) -->
+	<concept_reference_map concept_map_id="8" concept_reference_term_id="6" concept_map_type_id="3" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1007" uuid="map-uuid-8"/>
+	<concept_reference_map concept_map_id="9" concept_reference_term_id="6" concept_map_type_id="2" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1008" uuid="map-uuid-9"/>
+	<!-- concept_map_id 10: Leg cramp NARROWER-THAN R25.2 (retired concept test) -->
+	<concept_reference_map concept_map_id="10" concept_reference_term_id="7" concept_map_type_id="2" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1009" uuid="map-uuid-10"/>
+	<!-- concept_map_id 11: Osteoporosis SAME-AS M81.2 (retired reference-term test) -->
+	<concept_reference_map concept_map_id="11" concept_reference_term_id="8" concept_map_type_id="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1010" uuid="map-uuid-11"/>
+	<!-- concept_map_id 12/13: Essential hypertension SAME-AS I10 / Primary hypertension SAME-AS I10 (multiple same-as test) -->
+	<concept_reference_map concept_map_id="12" concept_reference_term_id="9" concept_map_type_id="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1011" uuid="map-uuid-12"/>
+	<concept_reference_map concept_map_id="13" concept_reference_term_id="9" concept_map_type_id="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1012" uuid="map-uuid-13"/>
+	<!-- concept_map_id 14: Unspecified fracture of facial bones SAME-AS S02.92 (exact match test for ICD-10-CM) -->
+	<concept_reference_map concept_map_id="14" concept_reference_term_id="10" concept_map_type_id="1" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1014" uuid="map-uuid-14"/>
+	<!-- concept_map_id 15/16: Direct infection of unspecified elbow in infectious and parasitic diseases classified elsewhere NARROWER-THAN M01.X2
+	 / Direct infections of joint in infectious and parasitic diseases classified elsewhere BROADER-THAN M01.X2 (prioritize narrower-than test for ICD-10-CM) -->
+	<concept_reference_map concept_map_id="15" concept_reference_term_id="11" concept_map_type_id="2" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1015" uuid="map-uuid-15"/>
+	<concept_reference_map concept_map_id="16" concept_reference_term_id="11" concept_map_type_id="3" creator="1" date_created="2026-01-01 00:00:00.0" concept_id="1016" uuid="map-uuid-16"/>
+
+	<!-- ==================== PERSONS ==================== -->
+	<!-- saveICD10Diagnosis test data -->
+	<person person_id="100" birthdate_estimated="0" dead="0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="person-uuid-100" deathdate_estimated="0"/>
+
+	<!-- getVisitNotes test data -->
+	<person person_id="200" birthdate_estimated="0" dead="0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="person-uuid-200" deathdate_estimated="0"/>
+	<person person_id="300" birthdate_estimated="0" dead="0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="person-uuid-300" deathdate_estimated="0"/>
+	<person person_id="400" birthdate_estimated="0" dead="0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="person-uuid-400" deathdate_estimated="0"/>
+	<person person_id="500" birthdate_estimated="0" dead="0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="person-uuid-500" deathdate_estimated="0"/>
+	<person person_id="600" birthdate_estimated="0" dead="0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="person-uuid-600" deathdate_estimated="0"/>
+	<person person_id="700" birthdate_estimated="0" dead="0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="person-uuid-700" deathdate_estimated="0"/>
+	<person person_id="800" birthdate_estimated="0" dead="0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="person-uuid-800" deathdate_estimated="0"/>
+
+	<!-- ==================== PATIENTS ==================== -->
+	<!-- saveICD10Diagnosis test data -->
+	<patient patient_id="100" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+
+	<!-- getVisitNotes test data -->
+	<!-- Patient 2: has a visit with no visit notes -->
+	<patient patient_id="200" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+	<!-- Patient 3: has a visit with exactly one visit note -->
+	<patient patient_id="300" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+	<!-- Patient 4: has a visit with multiple visit notes -->
+	<patient patient_id="400" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+	<!-- Patient 5: visit with a visit note AND an unrelated observation (filtering test) -->
+	<patient patient_id="500" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+	<!-- Patient 6: visit with one active and one voided visit note (voided test) -->
+	<patient patient_id="600" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+	<!-- Patient 7: two visits each with a visit note (visit boundary test) -->
+	<patient patient_id="700" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+
+	<!-- ==================== VISITS ==================== -->
+	<!-- getVisitNotes test data -->
+	<visit visit_id="200" patient_id="200" visit_type_id="1" date_started="2026-01-01 00:00:00.0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="visit-uuid-200"/>
+	<visit visit_id="300" patient_id="300" visit_type_id="1" date_started="2026-01-01 00:00:00.0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="visit-uuid-300"/>
+	<visit visit_id="400" patient_id="400" visit_type_id="1" date_started="2026-01-01 00:00:00.0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="visit-uuid-400"/>
+	<visit visit_id="500" patient_id="500" visit_type_id="1" date_started="2026-01-01 00:00:00.0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="visit-uuid-500"/>
+	<visit visit_id="600" patient_id="600" visit_type_id="1" date_started="2026-01-01 00:00:00.0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="visit-uuid-600"/>
+	<visit visit_id="700" patient_id="700" visit_type_id="1" date_started="2026-01-01 00:00:00.0" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="visit-uuid-700"/>
+	<visit visit_id="701" patient_id="700" visit_type_id="1" date_started="2026-02-01 00:00:00.0" creator="1" date_created="2026-02-01 00:00:00.0" voided="0" uuid="visit-uuid-701"/>
+
+	<!-- ==================== ENCOUNTERS ==================== -->
+	<!-- saveICD10Diagnosis test data -->
+	<encounter encounter_id="100" encounter_type="1" patient_id="100" encounter_datetime="2026-01-01 00:00:00.0" uuid="encounter-uuid-100" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+
+	<!-- getVisitNotes test data -->
+	<encounter encounter_id="200" encounter_type="2" patient_id="200" visit_id="200" encounter_datetime="2026-01-01 00:00:00.0" uuid="encounter-uuid-200" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+	<encounter encounter_id="300" encounter_type="2" patient_id="300" visit_id="300" encounter_datetime="2026-01-01 00:00:00.0" uuid="encounter-uuid-300" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+	<encounter encounter_id="400" encounter_type="2" patient_id="400" visit_id="400" encounter_datetime="2026-01-01 00:00:00.0" uuid="encounter-uuid-400" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+	<encounter encounter_id="500" encounter_type="2" patient_id="500" visit_id="500" encounter_datetime="2026-01-01 00:00:00.0" uuid="encounter-uuid-500" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+	<encounter encounter_id="600" encounter_type="2" patient_id="600" visit_id="600" encounter_datetime="2026-01-01 00:00:00.0" uuid="encounter-uuid-600" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+	<encounter encounter_id="700" encounter_type="2" patient_id="700" visit_id="700" encounter_datetime="2026-01-01 00:00:00.0" uuid="encounter-uuid-700" creator="1" date_created="2026-01-01 00:00:00.0" voided="0"/>
+	<encounter encounter_id="701" encounter_type="2" patient_id="700" visit_id="701" encounter_datetime="2026-02-01 00:00:00.0" uuid="encounter-uuid-701" creator="1" date_created="2026-02-01 00:00:00.0" voided="0"/>
+
+	<!-- ==================== OBSERVATIONS ==================== -->
+	<!-- getVisitNotes test data -->
+	<obs obs_id="300" concept_id="162169" encounter_id="300" person_id="300" obs_datetime="2026-01-01 00:00:00.0" value_text="Patient 3 presented with fever." creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="obs-uuid-300"/>
+	<obs obs_id="400" concept_id="162169" encounter_id="400" person_id="400" obs_datetime="2026-01-01 00:00:00.0" value_text="First visit note." creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="obs-uuid-400"/>
+	<obs obs_id="401" concept_id="162169" encounter_id="400" person_id="400" obs_datetime="2026-01-01 00:01:00.0" value_text="Second visit note." creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="obs-uuid-401"/>
+	<obs obs_id="402" concept_id="162169" encounter_id="400" person_id="400" obs_datetime="2026-01-01 00:02:00.0" value_text="Third visit note." creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="obs-uuid-402"/>
+	<obs obs_id="500" concept_id="162169" encounter_id="500" person_id="500" obs_datetime="2026-01-01 00:00:00.0" value_text="Patient 5 presented with fever." creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="obs-uuid-500"/>
+	<obs obs_id="501" concept_id="5089" encounter_id="500" person_id="500" obs_datetime="2026-01-01 00:00:00.0" value_numeric="72.5" creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="obs-uuid-501"/>
+	<obs obs_id="600" concept_id="162169" encounter_id="600" person_id="600" obs_datetime="2026-01-01 00:00:00.0" value_text="Active visit note." creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="obs-uuid-600"/>
+	<obs obs_id="601" concept_id="162169" encounter_id="600" person_id="600" obs_datetime="2026-01-01 00:00:00.0" value_text="Voided visit note." creator="1" date_created="2026-01-01 00:00:00.0" voided="1" date_voided="2026-01-02 00:00:00.0" voided_by="1" void_reason="Entered in error" uuid="obs-uuid-601"/>
+	<obs obs_id="700" concept_id="162169" encounter_id="700" person_id="700" obs_datetime="2026-01-01 00:00:00.0" value_text="Visit note from visit 700." creator="1" date_created="2026-01-01 00:00:00.0" voided="0" uuid="obs-uuid-700"/>
+	<obs obs_id="701" concept_id="162169" encounter_id="701" person_id="700" obs_datetime="2026-02-01 00:00:00.0" value_text="Visit note from visit 701." creator="1" date_created="2026-02-01 00:00:00.0" voided="0" uuid="obs-uuid-701"/>
+	<!-- saveSelectionToEncounter test data -->
+	<obs obs_id="702" concept_id="162169" person_id="700" obs_datetime="2026-02-01 00:00:00.0" value_text="Visit note from visit 702." creator="1" date_created="2026-02-01 00:00:00.0" voided="0" uuid="obs-uuid-702"/>
+</dataset>
