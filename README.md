@@ -1,5 +1,5 @@
+[![Build Status](https://github.com/tinyhuman-png/openmrs-module-icdhelper/actions/workflows/ci_pipeline.yml/badge.svg)](https://github.com/tinyhuman-png/openmrs-module-icdhelper/actions)
 # OpenMRS ICD-10-CM Coding Helper Module
-[![Build Status](https://github.com/tinyhuman-png/openmrs-module-icdhelper/actions/workflows/ci.yml/badge.svg)](https://github.com/tinyhuman-png/openmrs-module-icdhelper/actions)
 
 This module provides OpenMRS with an offline coding assistant. It uses embedded Artificial Intelligence 
 (SapBERT and a custom Hierarchical BERT) to analyze free-text clinical notes and suggest related ICD-10-CM codes, 
