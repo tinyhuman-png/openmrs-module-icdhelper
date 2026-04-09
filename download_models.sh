@@ -9,7 +9,7 @@ set -e
 
 echo "Downloading ONNX models and vocabularies..."
 MODEL_URL=https://github.com/tinyhuman-png/openmrs-module-icdhelper/releases/download/v1.0.0/models.tar.gz
-curl -L -o models.tar.gz "$MODEL_URL" -> command when repo becomes public
+curl -L -o models.tar.gz "$MODEL_URL"
 
 echo "Extracting models..."
 mkdir -p ./models
