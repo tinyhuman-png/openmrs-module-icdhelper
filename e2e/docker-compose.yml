@@ -14,7 +14,7 @@ services:
       DB_HOST: db
       JAVA_OPTS: "-Xmx3072m -Xms512m -XX:+UseG1GC"
     volumes:
-      - ../omod/target/icdhelper-1.0.0-SNAPSHOT.omod:/usr/local/tomcat/.OpenMRS/modules/icdhelper.omod
+      - ../omod/target/icdhelper-1.0.0.omod:/usr/local/tomcat/.OpenMRS/modules/icdhelper-1.0.0.omod
       - ../models:/usr/local/tomcat/.OpenMRS/icdhelper/models
     depends_on:
       db:

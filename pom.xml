@@ -10,7 +10,7 @@
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>icdhelper</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<name>ICDHelper</name>
 	<description>ICDHelper helps the ICD coding task with a search of ICD codes corresponding to a Note</description>
