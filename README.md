@@ -41,7 +41,14 @@ archive manually from the [GitHub release](https://github.com/tinyhuman-png/open
 and extract it to the repository root.
 In both cases, make sure the downloaded data lies in the `models` root folder.
 
-### 2. Start the server
+### 2. Build the module
+> **Note:** If you don't need to modify the source code, you can skip this step and download
+> the pre-built `.omod` directly from the [latest GitHub Release](https://github.com/tinyhuman-png/openmrs-module-icdhelper/releases/latest).
+```bash
+mvn clean install
+```
+
+### 3. Start the server
 ```bash
 cd e2e
 docker compose up
@@ -49,7 +56,7 @@ docker compose up
 Wait for OpenMRS to be ready (this can take 2–3 minutes). The instance is then accessible at 
 `http://localhost:8080/openmrs`, you can log in with username:`admin` and password:`Admin123`.
 
-### 3. Load the required concepts
+### 4. Load the required concepts
 The module depends on three Concepts from CIEL Concept Dictionary (`1284`, `160221`, and `162169`). 
 You have two options:
 
@@ -72,7 +79,7 @@ the database:
 * OpenMRS Core 2.x (Tested against Reference Application 2.12.0, this module relies on coreapps, uiframework,
   openconceptlab and appui modules)
 * OpenConceptLab subscription to CIEL Concept Dictionary (Concepts `1284`, `160221` and `162169` are required). See 
-details at [Quick start point 3](#3-load-the-required-concepts).
+details at [Quick start point 3](#4-load-the-required-concepts).
 
 ### 2. Download the ML Models
 Follow the steps from [Quick start point 1](#1-download-the-ml-models) to download all data related to the models.
@@ -117,7 +124,10 @@ If you only want to allocate the memory for your current session, run the follow
 * **Windows (PowerShell):** `$env:MAVEN_OPTS="-Xmx3072m -Xms512m -XX:+UseG1GC"`
 
 **Run the Build:**
+
 Once the memory limits are set, compile the module:
+> **Note:** If you don't need to modify the source code, you can skip this command and download
+> the pre-built `.omod` directly from the [latest GitHub Release](https://github.com/tinyhuman-png/openmrs-module-icdhelper/releases/latest).
 ```bash
 mvn clean install
 ```
