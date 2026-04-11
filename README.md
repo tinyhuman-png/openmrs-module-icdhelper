@@ -4,8 +4,7 @@
 This module provides OpenMRS with an offline coding assistant. It uses embedded Artificial Intelligence 
 (SapBERT and a custom Hierarchical BERT) to analyze free-text clinical notes and suggest related ICD-10-CM codes, 
 which are then mapped to OpenMRS Concepts and can be saved to the patient's medical record.
-
--> Demo video: COMING SOON
+[Watch the demo on YouTube](https://www.youtube.com/watch?v=rWpzap2CXXQ)
 
 ## Key Features
 * **Offline AI inference:** The module uses ONNX Runtime to execute the machine learning models directly 
