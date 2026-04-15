@@ -120,13 +120,11 @@
         checkbox.prop('checked', isChecked);
     }
     function handleCheckboxClick(event, checkboxElement) {
-    // Empêche le clic de se propager à la ligne (pour éviter un double toggle)
     event.stopPropagation();
     
     var checkbox = jq(checkboxElement);
     var row = checkbox.closest('.result-row');
     
-    // On synchronise la classe de la ligne avec l'état de la checkbox
     if (checkbox.is(':checked')) {
         row.addClass('selected-result');
     } else {
