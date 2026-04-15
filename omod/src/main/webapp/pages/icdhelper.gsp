@@ -11,7 +11,7 @@
     .note-row { position: relative; }
     .result-row:hover { background-color: #f0f7f6; }
     .result-row.selected-result { background-color: #e8f0fe !important; }
-    .result-row.selected-result .select-icon { visibility: visible !important; }
+    .result-row input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; display: block; margin: auto; margin-top: 4px; }
     .selected-note { background-color: #e8f0fe !important; border-left: 4px solid #00463f; }
     .check-icon { display: none; color: #00463f; margin-left: 10px; }
     .selected-note .check-icon { display: inline; }
@@ -119,6 +119,20 @@
         var isChecked = row.hasClass('selected-result');
         checkbox.prop('checked', isChecked);
     }
+    function handleCheckboxClick(event, checkboxElement) {
+    // Empêche le clic de se propager à la ligne (pour éviter un double toggle)
+    event.stopPropagation();
+    
+    var checkbox = jq(checkboxElement);
+    var row = checkbox.closest('.result-row');
+    
+    // On synchronise la classe de la ligne avec l'état de la checkbox
+    if (checkbox.is(':checked')) {
+        row.addClass('selected-result');
+    } else {
+        row.removeClass('selected-result');
+    }
+}
 
     function saveSelected() {
         var selectedValues = jq("input[name='selectedResults']:checked")
@@ -228,11 +242,10 @@
                 <tbody>
                     <% icdResults.each { result -> %>
                         <tr class="result-row" onclick="toggleResultSelection(this)" style="cursor: pointer; border-bottom: 1px solid #eee;">
-                            <td>
+                            <td style="text-align: center; vertical-align: middle;">
                                 <input type="checkbox" name="selectedResults"
                                 value="${result.concept ? (result.concept.uuid + '|' + result.icdCode ) : ('RAW:' + result.icdCode + ': ' + result.description)}"
-                                style="display: none;">
-                                <i class="icon-ok select-icon" style="visibility: hidden; color: #007fff;"></i>
+                                onclick="handleCheckboxClick(event, this)"> 
                             </td>
                             <td><strong>${ result.icdCode }</strong></td>
                             <td>${ result.description }</td>
