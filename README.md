@@ -5,6 +5,7 @@ This module provides OpenMRS with an offline coding assistant. It uses embedded 
 (SapBERT and a custom Hierarchical BERT) to analyze free-text clinical notes and suggest related ICD-10-CM codes, 
 which are then mapped to OpenMRS Concepts and can be saved to the patient's medical record.
 [Watch the demo on YouTube](https://www.youtube.com/watch?v=rWpzap2CXXQ)
+
 [We would appreciate it if you could take a few minutes to answer our user experience survey](https://egouthiere.limesurvey.net/796197?lang=en&newtest=Y)
 
 ## Key Features
