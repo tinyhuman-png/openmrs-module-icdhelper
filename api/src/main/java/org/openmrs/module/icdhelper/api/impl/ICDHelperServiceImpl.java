@@ -285,7 +285,7 @@ public class ICDHelperServiceImpl extends BaseOpenmrsService implements ICDHelpe
 			Obs savedObs = null;
 			if (item.startsWith("RAW:")) {
 				// It is a non-coded item containing ICD code and eventually description.
-				// Save as free text under concept 160221 ("Diagnosis, Non-coded")
+				// Save as free text under concept 161602 ("Diagnosis, Non-coded")
 				String rawText = item.replace("RAW:", "");
 				savedObs = this.saveICD10Diagnosis(patient, encounter, rawText);
 			} else if (item.contains("|")) {
@@ -467,7 +467,7 @@ public class ICDHelperServiceImpl extends BaseOpenmrsService implements ICDHelpe
 		Concept questionConcept = Context.getConceptService().getConceptByUuid(
 		    ICDHelperConfig.DIAGNOSIS_NON_CODED_CONCEPT_UUID);
 		if (questionConcept == null) {
-			throw new IllegalStateException("Required concept '160221' (Diagnosis Non-Coded) not found. "
+			throw new IllegalStateException("Required concept '161602' (Diagnosis Non-Coded) not found. "
 			        + "Please install the CIEL concept dictionary. " + "See: https://www.openconceptlab.org/");
 		}
 		

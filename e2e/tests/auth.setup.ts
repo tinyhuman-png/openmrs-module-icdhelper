@@ -7,7 +7,7 @@ setup('authenticate and seed database', async ({ page, request }) => {
     const authHeader = 'Basic ' + Buffer.from('admin:Admin123').toString('base64');
     const requiredConcepts = [
         { uuid: '1284AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', name: 'Diagnosis Coded' },
-        { uuid: '160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', name: 'Diagnosis Non-coded' },
+        { uuid: '161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', name: 'Diagnosis Non-coded' },
         { uuid: '162169AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA', name: 'Visit Note' }
     ];
 

@@ -27,8 +27,8 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * The main service of ICDHelper module, which is exposed for other modules.
  * <p>
- * Provides AI-assisted ICD-10-CM code suggestions from clinical notes, concept lookup by ICD-10-CM code,
- * and saving selected diagnoses as observations to a patient encounter.
+ * Provides AI-assisted ICD-10-CM code suggestions from clinical notes, concept lookup by ICD-10-CM
+ * code, and saving selected diagnoses as observations to a patient encounter.
  * <p>
  * See moduleApplicationContext.xml on how it is wired up.
  * <p>
@@ -88,7 +88,7 @@ public interface ICDHelperService extends OpenmrsService {
 	 * <li>{@code "<conceptUuid>|<icdCode>"} — will be saved as a coded diagnosis (concept
 	 * {@code 1284}, "Diagnosis Coded")</li>
 	 * <li>{@code "RAW:<icdCode>: <description>"} — will be saved as a non-coded diagnosis (concept
-	 * {@code 160221}, "Diagnosis Non-coded")</li>
+	 * {@code 161602}, "Diagnosis Non-coded")</li>
 	 * </ul>
 	 * Items that are already present in the encounter are silently skipped (idempotent).
 	 * </p>
@@ -97,8 +97,8 @@ public interface ICDHelperService extends OpenmrsService {
 	 * @param visitNoteUuid the UUID of the visit note {@link Obs} whose encounter will receive the
 	 *            diagnoses; must not be null and must belong to {@code patient}
 	 * @param selection the list of encoded diagnosis strings to save; must not be null
-	 * @return the exact string {@code "Success"} if all items are saved perfectly, otherwise returns
-	 * an aggregated string of per-item error messages.
+	 * @return the exact string {@code "Success"} if all items are saved perfectly, otherwise
+	 *         returns an aggregated string of per-item error messages.
 	 * @throws IllegalArgumentException if any argument is null, if the visit note is not found, or
 	 *             if the visit note does not belong to the given patient
 	 */
@@ -114,11 +114,11 @@ public interface ICDHelperService extends OpenmrsService {
 	 * Looks up an OpenMRS concept by its ICD-10-CM code, using a two-pass strategy:
 	 * <ol>
 	 * <li>First pass: searches in the {@code ICD-10-CM} dictionary, if it exists.</li>
-	 * <li>Second pass: if either the {@code ICD-10-CM} dictionary does not exist or
-	 * the code is not found, searches in the standard {@code ICD-10-WHO} dictionary with a
-	 * progressive truncation strategy (e.g., "S82.001A" &rarr; "S82.001" &rarr; ... &rarr; "S82")
-	 * If a truncated exact match ({@code SAME-AS}) is found, it is returned as a {@code BROADER-THAN} relationship
-	 * to preserve clinical accuracy.</li>
+	 * <li>Second pass: if either the {@code ICD-10-CM} dictionary does not exist or the code is not
+	 * found, searches in the standard {@code ICD-10-WHO} dictionary with a progressive truncation
+	 * strategy (e.g., "S82.001A" &rarr; "S82.001" &rarr; ... &rarr; "S82") If a truncated exact
+	 * match ({@code SAME-AS}) is found, it is returned as a {@code BROADER-THAN} relationship to
+	 * preserve clinical accuracy.</li>
 	 * </ol>
 	 * Priority order: {@code SAME-AS} &gt; {@code BROADER-THAN} &gt; {@code NARROWER-THAN}. When
 	 * multiple concepts share the same priority, the one with the lowest concept ID is returned to
@@ -128,8 +128,8 @@ public interface ICDHelperService extends OpenmrsService {
 	 * Retired concepts are excluded from results.
 	 * </p>
 	 * 
-	 * @param code the ICD-10-CM code to look up; must not be null; trimmed
-	 *            and uppercased before comparison
+	 * @param code the ICD-10-CM code to look up; must not be null; trimmed and uppercased before
+	 *            comparison
 	 * @return an {@link ICDSearchResult} with the best-matching concept, or {@code null} if no
 	 *         non-retired concept is found
 	 * @throws IllegalArgumentException if {@code code} is null
@@ -179,8 +179,8 @@ public interface ICDHelperService extends OpenmrsService {
 	 * Saves a non-coded diagnosis as a free-text observation on an encounter.
 	 * </p>
 	 * <p>
-	 * Used when no concept maps to the AI-suggested ICD-10-CM code. Uses CIEL concept {@code 160221}
-	 * ("Diagnosis, Non-coded") as the question concept.
+	 * Used when no concept maps to the AI-suggested ICD-10-CM code. Uses CIEL concept
+	 * {@code 161602} ("Diagnosis, Non-coded") as the question concept.
 	 * </p>
 	 * <p>
 	 * If an identical non-voided free-text observation already exists in this encounter, the
@@ -225,15 +225,16 @@ public interface ICDHelperService extends OpenmrsService {
 	 * </p>
 	 * <p>
 	 * Iterates over the concept's mappings and returns the map type name (e.g. {@code "SAME-AS"},
-	 * {@code "NARROWER-THAN"}, {@code "BROADER-THAN"}) for the first non-retired mapping whose
-	 * code exactly matches (case-insensitive).
-	 * If the input code is a truncated, highly-specific CM code (e.g., input "A00.12" matching reference term "A00"),
-	 * it dynamically returns {@code "BROADER-THAN"}.
+	 * {@code "NARROWER-THAN"}, {@code "BROADER-THAN"}) for the first non-retired mapping whose code
+	 * exactly matches (case-insensitive). If the input code is a truncated, highly-specific CM code
+	 * (e.g., input "A00.12" matching reference term "A00"), it dynamically returns
+	 * {@code "BROADER-THAN"}.
 	 * </p>
 	 * 
 	 * @param concept the concept to inspect; must not be null
 	 * @param icdCode the ICD-10-CM code to match against; must not be null
-	 * @return the mapping type name, or {@code "NO MAPPING"} if either the concept is retired, or no match is found
+	 * @return the mapping type name, or {@code "NO MAPPING"} if either the concept is retired, or
+	 *         no match is found
 	 * @throws IllegalArgumentException if {@code concept} or {@code icdCode} is null
 	 */
 	@Authorized()

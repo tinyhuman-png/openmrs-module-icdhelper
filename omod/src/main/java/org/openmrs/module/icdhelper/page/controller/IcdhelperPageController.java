@@ -161,10 +161,11 @@ public class IcdhelperPageController {
 	 * model. Sets {@code error} on validation failure or service exception.
 	 * </p>
 	 * <p>
-	 * <strong>action=save:</strong> validates that a selection and a locked note UUID are present, and
-	 * delegates to {@link ICDHelperService#saveSelectionToEncounter}. Sets
-	 * {@code successMessage} if the method returned {@code "Success"}, else sets {@code error} with the returned
-	 * error details. If a clinical note is also present, re-runs prediction so suggestions remain visible after saving.
+	 * <strong>action=save:</strong> validates that a selection and a locked note UUID are present,
+	 * and delegates to {@link ICDHelperService#saveSelectionToEncounter}. Sets
+	 * {@code successMessage} if the method returned {@code "Success"}, else sets {@code error} with
+	 * the returned error details. If a clinical note is also present, re-runs prediction so
+	 * suggestions remain visible after saving.
 	 * </p>
 	 * Sets {@code error} if {@code action} is neither {@code "predict"} or {@code "save"}
 	 */

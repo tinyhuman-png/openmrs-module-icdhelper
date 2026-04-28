@@ -293,12 +293,12 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals(patient, savedObs.getPerson());
 		Assert.assertEquals(patient, retrievedObs.getPerson());
 		
-		Assert.assertEquals(Integer.valueOf(160221), savedObs.getConcept().getConceptId());
+		Assert.assertEquals(Integer.valueOf(161602), savedObs.getConcept().getConceptId());
 		Assert.assertEquals(freeText, savedObs.getValueText());
 		Assert.assertNotNull(savedObs.getCreator());
 		Assert.assertNotNull(savedObs.getObsDatetime());
 		
-		Assert.assertEquals(Integer.valueOf(160221), retrievedObs.getConcept().getConceptId());
+		Assert.assertEquals(Integer.valueOf(161602), retrievedObs.getConcept().getConceptId());
 		Assert.assertEquals(freeText, retrievedObs.getValueText());
 		Assert.assertNotNull(retrievedObs.getCreator());
 		Assert.assertNotNull(retrievedObs.getObsDatetime());
@@ -322,12 +322,12 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals(patient, savedObs.getPerson());
 		Assert.assertEquals(patient, retrievedObs.getPerson());
 		
-		Assert.assertEquals(Integer.valueOf(160221), savedObs.getConcept().getConceptId());
+		Assert.assertEquals(Integer.valueOf(161602), savedObs.getConcept().getConceptId());
 		Assert.assertEquals("A00.9: Unspecified Cholera ....", savedObs.getValueText());
 		Assert.assertNotNull(savedObs.getCreator());
 		Assert.assertNotNull(savedObs.getObsDatetime());
 		
-		Assert.assertEquals(Integer.valueOf(160221), retrievedObs.getConcept().getConceptId());
+		Assert.assertEquals(Integer.valueOf(161602), retrievedObs.getConcept().getConceptId());
 		Assert.assertEquals("A00.9: Unspecified Cholera ....", retrievedObs.getValueText());
 		Assert.assertNotNull(retrievedObs.getCreator());
 		Assert.assertNotNull(retrievedObs.getObsDatetime());
@@ -498,7 +498,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		Context.flushSession();
 		Context.clearSession();
 		
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> observations = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		
 		int count = 0;
@@ -782,7 +782,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		String encounter_uuid = Context.getObsService().getObsByUuid(visit_note_uuid).getEncounter().getUuid();
 		Assert.assertEquals(encounter_uuid, retrievedObs.get(0).getEncounter().getUuid());
 		
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> retrievedObs_text = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		Assert.assertEquals(0, retrievedObs_text.size());
 	}
@@ -798,7 +798,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertNotNull(resultStatus);
 		Assert.assertEquals("Success", resultStatus);
 		
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> retrievedObs = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		Assert.assertEquals(1, retrievedObs.size());
 		
@@ -829,7 +829,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertNotNull(resultStatus);
 		Assert.assertEquals("Success", resultStatus);
 		
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> retrievedObs = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		Assert.assertEquals(1, retrievedObs.size());
 		
@@ -876,7 +876,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals("No selected diagnoses; nothing to save.", resultStatus);
 		
 		//Nothing should have been saved
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> retrievedObs = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		Assert.assertEquals(0, retrievedObs.size());
 		
@@ -899,7 +899,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals("Could not save the observations when Visit Note has no associated encounter.", resultStatus);
 		
 		//Nothing should have been saved
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> retrievedObs = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		Assert.assertEquals(0, retrievedObs.size());
 		
@@ -982,7 +982,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals("There was an error saving some diagnose.s: ['concept-uuid-1 - A00.9 RAW:Unspecified "
 		        + "Cholera' is not a valid format for selection item]", resultStatus3);
 		
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> retrievedObs = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		Assert.assertEquals(0, retrievedObs.size());
 		
@@ -1003,7 +1003,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals("There was an error saving some diagnose.s: ['RAW:' could not be saved in database]",
 		    resultStatus);
 		
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> retrievedObs = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		Assert.assertEquals(0, retrievedObs.size());
 		
@@ -1024,7 +1024,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals("There was an error saving some diagnose.s: [There is no mapping between "
 		        + "concept-uuid-1 and D50.0]", resultStatus);
 		
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> retrievedObs = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		Assert.assertEquals(0, retrievedObs.size());
 		
@@ -1045,7 +1045,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals("There was an error saving some diagnose.s: [There is no Concept corresponding to "
 		        + "concept uuid concept-uuid-0]", resultStatus);
 		
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> retrievedObs = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		Assert.assertEquals(0, retrievedObs.size());
 		
@@ -1069,7 +1069,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		    "There was an error saving some diagnose.s: ['A00.9: Unspecified cholera' is not a valid format for "
 		            + "selection item]", resultStatus);
 		
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> retrievedObs = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		Assert.assertEquals(1, retrievedObs.size());
 		
@@ -1119,7 +1119,7 @@ public class ICDHelperServiceTest extends BaseModuleContextSensitiveTest {
 		String encounter_uuid = Context.getObsService().getObsByUuid(visit_note_uuid).getEncounter().getUuid();
 		Assert.assertEquals(encounter_uuid, retrievedObs.get(0).getEncounter().getUuid());
 		
-		Concept med_history = Context.getConceptService().getConceptByUuid("160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		Concept med_history = Context.getConceptService().getConceptByUuid("161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		List<Obs> retrievedObs_text = Context.getObsService().getObservationsByPersonAndConcept(patient, med_history);
 		Assert.assertEquals(0, retrievedObs_text.size());
 	}

@@ -80,7 +80,7 @@ public class ICDHelperActivator extends BaseModuleActivator {
 	private void validateRequiredConcepts() {
 		String[] requiredUuids = { ICDHelperConfig.DIAGNOSIS_CODED_CONCEPT_UUID,
 		        ICDHelperConfig.DIAGNOSIS_NON_CODED_CONCEPT_UUID, ICDHelperConfig.VISIT_NOTE_CONCEPT_UUID };
-		String[] conceptNames = { "Diagnosis Coded (1284)", "Diagnosis Non-coded (160221)", "Visit Note (162169)" };
+		String[] conceptNames = { "Diagnosis Coded (1284)", "Diagnosis Non-coded (161602)", "Visit Note (162169)" };
 		
 		boolean allPresent = true;
 		for (int i = 0; i < requiredUuids.length; i++) {

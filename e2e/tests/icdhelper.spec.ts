@@ -22,6 +22,7 @@ test.describe('ICDHelper module', () => {
     });
 
     test('should display empty state on GET', async ({ page, patient, visit }) => {
+        await page.waitForTimeout(200);
         await icdPage.navigate(patient.uuid, visit.uuid);
 
         await expect(icdPage.resultTable).toHaveCount(0);
@@ -60,7 +61,7 @@ test.describe('ICDHelper module', () => {
         );
         const nonCodedCount = await icdPage.getObsCountForPatient(
             request, patient.uuid,
-            '160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+            '161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
         );
         expect(codedCount).toBeGreaterThanOrEqual(1);
         expect(nonCodedCount).toBeGreaterThanOrEqual(1);
@@ -99,7 +100,7 @@ test.describe('ICDHelper module', () => {
         );
         const nonCodedCount = await icdPage.getObsCountForPatient(
             request, patient.uuid,
-            '160221AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+            '161602AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
         );
         expect(codedCount).toBeGreaterThanOrEqual(1);
         expect(nonCodedCount).toBeGreaterThanOrEqual(1);

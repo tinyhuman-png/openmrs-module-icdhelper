@@ -22,7 +22,7 @@ Current Visit Actions (provided they have an active visit).
 * **Persistence of suggestions:** The suggested ICD-10-CM codes can be saved to the patient's record, 
 as new Observations under the same Encounter as the Visit Note from which the clinical text comes from. 
 Depending on whether a matching Concept was found for the selected ICD-10-CM code or not, it is saved as a 
-coded value Concept under Concept 1284 ("Diagnosis, Coded"), or as free text under Concept 160221 ("Diagnosis, Non-coded")
+coded value Concept under Concept 1284 ("Diagnosis, Coded"), or as free text under Concept 161602 ("Diagnosis, Non-coded")
 
 ## Architecture
 This project is built using the standard OpenMRS module architecture (Spring MVC + Hibernate), and GSP for UI framework.
@@ -59,7 +59,7 @@ Wait for OpenMRS to be ready (this can take 2–3 minutes). The instance is then
 `http://localhost:8080/openmrs`, you can log in with username:`admin` and password:`Admin123`.
 
 ### 4. Load the required concepts
-The module depends on three Concepts from CIEL Concept Dictionary (`1284`, `160221`, and `162169`). 
+The module depends on three Concepts from CIEL Concept Dictionary (`1284`, `161602`, and `162169`). 
 You have two options:
 
 * **Recommended:** Subscribe to the CIEL dictionary via the OpenConceptLab module in the OpenMRS admin panel. The
@@ -80,7 +80,7 @@ the database:
 * Java 8+ and Maven
 * OpenMRS Core 2.x (Tested against Reference Application 2.12.0, this module relies on coreapps, uiframework,
   openconceptlab and appui modules)
-* OpenConceptLab subscription to CIEL Concept Dictionary (Concepts `1284`, `160221` and `162169` are required). See 
+* OpenConceptLab subscription to CIEL Concept Dictionary (Concepts `1284`, `161602` and `162169` are required). See 
 details at [Quick start point 3](#4-load-the-required-concepts).
 
 ### 2. Download the ML Models

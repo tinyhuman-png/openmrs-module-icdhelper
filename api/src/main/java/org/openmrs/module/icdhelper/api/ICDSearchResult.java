@@ -5,9 +5,9 @@ import org.openmrs.Concept;
 /**
  * Represents a single ICD-10-CM diagnosis suggestion returned by the AI predictors.
  * <p>
- * This DTO aggregates the raw prediction from the ONNX models (the ICD-10-CM code,
- * description, and confidence score) with the local OpenMRS dictionary resolution
- * (the matched Concept and the type of mapping).
+ * This DTO aggregates the raw prediction from the ONNX models (the ICD-10-CM code, description, and
+ * confidence score) with the local OpenMRS dictionary resolution (the matched Concept and the type
+ * of mapping).
  * </p>
  */
 public class ICDSearchResult {
@@ -27,10 +27,10 @@ public class ICDSearchResult {
 		this.mappingType = mappingType;
 		this.icdCode = code;
 	}
-
+	
 	/**
-	 * @return The OpenMRS Concept that matches the ICD-10-CM code, or null if the
-	 * code does not exist in the local CIEL dictionary.
+	 * @return The OpenMRS Concept that matches the ICD-10-CM code, or null if the code does not
+	 *         exist in the local CIEL dictionary.
 	 */
 	public Concept getConcept() {
 		return this.concept;
@@ -39,10 +39,10 @@ public class ICDSearchResult {
 	public void setConcept(Concept concept) {
 		this.concept = concept;
 	}
-
+	
 	/**
-	 * @return The type of relationship between the Concept and the ICD-10-CM code.
-	 * Expected values: "SAME-AS", "NARROWER-THAN", "BROADER-THAN", or "NO MAPPING".
+	 * @return The type of relationship between the Concept and the ICD-10-CM code. Expected values:
+	 *         "SAME-AS", "NARROWER-THAN", "BROADER-THAN", or "NO MAPPING".
 	 */
 	public String getMappingType() {
 		return this.mappingType;
@@ -71,7 +71,7 @@ public class ICDSearchResult {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	
 	/**
 	 * @return The model's confidence score for this prediction (0.0 to 1.0).
 	 */
